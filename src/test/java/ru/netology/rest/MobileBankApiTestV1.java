@@ -20,15 +20,16 @@ public class MobileBankApiTestV1 {
                 .body(matchesJsonSchemaInClasspath("accounts.schema.json"));
 
     }
+
     @Test
-    void shouldReturnCurrency(){
+    void shouldReturnCurrency() {
         given()
                 .baseUri("http://localhost:9999/api/v1")
                 .when()
                 .get("/demo/accounts")
                 .then()
                 .body("[0].currency", equalTo("RUB"))
-                .body("[1].currency",equalTo("USD"));
+                .body("[1].currency", equalTo("USD"));
     }
 }
 
